@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import MainScene from "../three/MainScene";
+import MainThreeScene from "../three/MainThreeScene";
 
 const Home: NextPage = () => {
   return (
@@ -12,16 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <MainScene />
-      </div>
-      <div className={styles.container2}>
-        <h1>HELLO</h1>
-        <div className={styles.tst_section}>
-          <h1>HELLO</h1>
-        </div>
-        <div className={styles.tst_section}>
-          <h1>HELLO</h1>
-        </div>
+        <MainThreeScene />
       </div>
     </div>
   );

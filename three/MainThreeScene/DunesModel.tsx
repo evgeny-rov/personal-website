@@ -15,14 +15,14 @@ type GLTFResult = GLTF & {
   materials: {};
 };
 
+const MODEL_PATH = "/static/DunesModel.glb";
 const MESH_COLOR = "#6645be";
-const MESH_COLOR2 = "#2c174e";
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>(null!);
-  const { nodes, materials } = useGLTF("/static/DunesModel.glb") as GLTFResult;
+  const { nodes } = useGLTF(MODEL_PATH) as GLTFResult;
 
-  useFrame((state, camera) => {
+  useFrame(() => {
     group.current.rotation.y += 0.001;
   });
 
@@ -35,4 +35,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/static/DunesModel.glb");
+useGLTF.preload(MODEL_PATH);
