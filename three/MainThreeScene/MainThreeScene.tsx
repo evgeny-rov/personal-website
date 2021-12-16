@@ -12,7 +12,7 @@ const MainScene = () => {
   return (
     <>
       <Canvas dpr={1}>
-        <Stats />
+        {/* <Stats /> */}
         <color attach="background" args={["black"]} />
         <fog attach="fog" args={["#000000", 10, 35]} />
         <Controls />
