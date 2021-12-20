@@ -3,7 +3,7 @@ import Head from "next/head";
 import MainThreeScene from "../three/MainThreeScene";
 
 import Image from "next/image";
-import ScrambledPT from "../components/ScrambledText2";
+import ScrambledText from "../components/ScrambledText";
 
 const Home: NextPage = () => {
   return (
@@ -19,13 +19,12 @@ const Home: NextPage = () => {
         </div>
         <div className="hero__content">
           <div>
-            <ScrambledPT
-              sentences={[
-                "- Who is god?",
-                "- A lot of people think it's just a feeling",
-                "- I think of him as someone who makes flowers, green grass",
-                "- I think there is a piece of him in every single person",
-              ]}
+            <ScrambledText
+              // shouldRepeat
+              fillerChars="_>"
+              variability={0.05}
+              duration={60}
+              sentences={["Добрый вечер", "Много кто пытался найти меня"]}
             />
           </div>
         </div>
