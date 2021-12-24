@@ -27,20 +27,6 @@ type ScrambledTextProps = {
   interval?: number;
 };
 
-const DEFAULT_STYLES: StylesType = {
-  filler: {
-    color: "gray",
-  },
-  real: {
-    color: "#FAFAFA",
-  },
-};
-
-const DEFAULT_CLASSNAMES: ClassNamesType = {
-  filler: "",
-  real: "",
-};
-
 const DEFAULT_DURATION = 40;
 const DEFAULT_INTERVAL = 5000;
 const DEFAULT_CHAR_VARIABILITY = 0.28;
@@ -48,8 +34,8 @@ const DEFAULT_FILLER_CHARS = "!<>-_\\/[]{}—=+*^?#________";
 
 const ScrambledText = ({
   sentences,
-  classNames = DEFAULT_CLASSNAMES,
-  styles = DEFAULT_STYLES,
+  classNames,
+  styles,
   variability = DEFAULT_CHAR_VARIABILITY,
   fillerChars = DEFAULT_FILLER_CHARS,
   duration = DEFAULT_DURATION,
@@ -126,10 +112,10 @@ const ScrambledText = ({
   return (
     <>
       {output.map(({ type, value }, idx: number) => {
-        const style = styles[type];
-        const className = classNames[type];
+        const style = styles?.[type];
+        const className = classNames?.[type];
         return (
-          <span key={idx} {...{ style, className }}>
+          <span key={idx} {...{ className, style }}>
             {value}
           </span>
         );

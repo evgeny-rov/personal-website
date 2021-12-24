@@ -12,8 +12,7 @@ const MainScene = () => {
   return (
     <>
       <Canvas dpr={1}>
-        <Stats />
-        <color attach="background" args={["black"]} />
+        {/* <Stats /> */}
         <fog attach="fog" args={["#000000", 10, 35]} />
         <Controls />
         <pointLight position={[50, -5, 0]} intensity={5} color={LIGHTS_COLOR} />
@@ -23,7 +22,7 @@ const MainScene = () => {
           <Effects />
         </Suspense>
       </Canvas>
-      <Loader />
+      {/* <Loader /> */}
     </>
   );
 };
