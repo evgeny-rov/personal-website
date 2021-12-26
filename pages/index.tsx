@@ -13,21 +13,35 @@ const Hero = () => {
         <a href="">контакты</a>
       </header>
       <div className="hero__foreground">
-        <main className="hero__main">
-          <h1 className="hero__headline">создаю ui даже во сне</h1>
-          <span className="hero__scrambled">
-            <ScrambledText
-              shouldRepeat
-              duration={90}
-              classNames={{
-                real: "scrambled-text",
-                filler: "scrambled-text scrambled-text--type-filler",
-              }}
-              interval={3000}
-              variability={0.3}
-              sentences={["проекты", "vvv"]}
+        <main className="profile">
+          <div className="profile__picture">
+            <Image
+              src={"/static/hero_pic.jpeg"}
+              alt="profile picture"
+              layout="fill"
+              objectFit="cover"
             />
-          </span>
+          </div>
+          <div className="profile__info">
+            <div className="profile__bio">
+              <h3 className="profile__name">евгений Родионов</h3>
+              <span className="profile__title">фронтенд разработчик</span>
+            </div>
+            <h1 className="profile__headline">создаю ui даже во сне</h1>
+            <span>
+              <ScrambledText
+                shouldRepeat
+                duration={90}
+                classNames={{
+                  real: "scrambled-text",
+                  filler: "scrambled-text scrambled-text--type-filler",
+                }}
+                interval={3000}
+                variability={0.3}
+                sentences={["проекты", "vvv"]}
+              />
+            </span>
+          </div>
         </main>
       </div>
       <div className="hero__background">
@@ -40,15 +54,20 @@ const Hero = () => {
 const Projects = () => {
   return (
     <div className="project">
-      <div className="project__description"></div>
       <div className="project__showcase">
-        <Image
-          src="/static/mock1-tp-comp-v2.png"
+        {/* <Image
+          src="/static/in-mock-tp.png"
           alt="Tasty showcase"
           className="project__image"
           layout="fill"
-          objectFit="contain"
-        />
+          objectFit="cover"
+        /> */}
+      </div>
+      <div className="project__description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In deleniti
+        cupiditate accusantium neque nesciunt blanditiis omnis odit, modi aut,
+        cumque accusamus perspiciatis nemo incidunt, sunt aliquam ea qui fugit
+        sit!
       </div>
     </div>
   );
