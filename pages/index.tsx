@@ -51,25 +51,31 @@ const Hero = () => {
   );
 };
 
-const Projects = () => {
+const AnyProject = ({ name }: any) => {
   return (
     <div className="project">
       <div className="project__showcase">
-        {/* <Image
-          src="/static/in-mock-tp.png"
-          alt="Tasty showcase"
-          className="project__image"
-          layout="fill"
-          objectFit="cover"
-        /> */}
+        <div className="project__image">
+          <Image
+            src={`/static/projects/${name}`}
+            alt="Tasty showcase"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </div>
-      <div className="project__description">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In deleniti
-        cupiditate accusantium neque nesciunt blanditiis omnis odit, modi aut,
-        cumque accusamus perspiciatis nemo incidunt, sunt aliquam ea qui fugit
-        sit!
-      </div>
+      <div className="project__description">hee</div>
     </div>
+  );
+};
+
+const Projects = () => {
+  return (
+    <section className="projects">
+      <AnyProject name={"ch-showcase.png"} />
+      <AnyProject name={"di-showcase.png"} />
+      <AnyProject name={"in-showcase.png"} />
+    </section>
   );
 };
 
