@@ -4,6 +4,11 @@ import MainThreeScene from "../three/MainThreeScene";
 
 import Image from "next/image";
 import ScrambledText from "../components/ScrambledText";
+import { getProjects, Project } from "../data/projectsData";
+
+const convertProjectIdToSubtext = (id: number) => {
+  return "prj." + id.toString().padStart(2, "0");
+};
 
 const Hero = () => {
   return (
@@ -16,7 +21,7 @@ const Hero = () => {
         <main className="profile">
           <div className="profile__picture">
             <Image
-              src={"/static/hero_pic.jpeg"}
+              src={"/static/hero_pic.png"}
               alt="profile picture"
               layout="fill"
               objectFit="cover"
@@ -51,30 +56,59 @@ const Hero = () => {
   );
 };
 
-const AnyProject = ({ name }: any) => {
+// <div className="project__brief">
+//   <span className="project__subtext">
+//     {convertProjectIdToSubtext(project.id)}
+//   </span>
+//   <span className="project__subtext project__subtext--size-small">
+//     {"stck: " + project.stack.join(" / ")}
+//   </span>
+// </div>
+// <div className="project__brief">
+//   <span className="project__subtext project__subtext--size-small">
+//     {"st_" + project.status}
+//   </span>
+// </div>
+
+const AnyProject = (project: Project) => {
   return (
     <div className="project">
       <div className="project__showcase">
         <div className="project__image">
           <Image
-            src={`/static/projects/${name}`}
-            alt="Tasty showcase"
+            src={project.showcase_pic}
+            alt={project.title}
             layout="fill"
             objectFit="contain"
           />
         </div>
       </div>
-      <div className="project__description">hee</div>
+      <div className="project__details">
+        <h1 className="project__title">{project.title}</h1>
+        <span className="project__description">{project.description}</span>
+        <div className="project__actions">
+          <a className="button" href={project.source_url}>
+            source код
+          </a>
+          {project.demo_url && (
+            <a className="button button--type-inverted" href={project.demo_url}>
+              демо
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
 const Projects = () => {
+  const projects = getProjects();
+
   return (
     <section className="projects">
-      <AnyProject name={"ch-showcase.png"} />
-      <AnyProject name={"di-showcase.png"} />
-      <AnyProject name={"in-showcase.png"} />
+      {projects.map((project) => (
+        <AnyProject key={project.id} {...project} />
+      ))}
     </section>
   );
 };
