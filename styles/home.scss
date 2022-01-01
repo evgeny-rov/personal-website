@@ -1,24 +1,27 @@
-$text-light: #fafafa;
-$text-light-muted: #bebebe;
-$text-dark: #111111;
-$adjustable-padding: min(2rem, 5vw);
+$color-light: #fafafa;
+$color-light-muted: #858585;
+$color-dark: #111111;
+$adjustable-padding: min(2rem, 5vmin);
+$breakpoint: 35rem;
 
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   overflow: hidden;
-  // border-radius: 20px;
+  box-shadow: 0 50px 50px #000;
+  border-radius: 50px;
 
   &__header {
     position: absolute;
     top: $adjustable-padding;
     right: $adjustable-padding;
-    display: grid;
-    align-items: center;
-    grid-auto-flow: column;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 2rem;
     font-weight: 100;
+    font-size: clamp(1rem, 2vmin, 2rem);
     text-transform: uppercase;
     text-align: right;
     z-index: 2;
@@ -51,42 +54,40 @@ $adjustable-padding: min(2rem, 5vw);
 .profile {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(100px, 25vw) 1fr;
-  // grid-auto-columns: min(100px, 25vw) 1fr;
+  grid-auto-columns: min(6.25rem, 25vw) 1fr;
   gap: 1.5rem;
   place-items: center;
-  width: min(100%, 500px);
-  height: 250px;
+  width: min(100%, 31.25rem);
+  height: 18.75rem;
   text-align: left;
 
   &__info {
-    height: 80%;
+    height: 70%;
     display: grid;
     align-items: center;
   }
 
   &__bio {
     text-transform: capitalize;
-    line-height: 100%;
-    opacity: 0.8;
+    line-height: 1rem;
   }
 
   &__name {
     margin: 0;
     font-weight: 300;
-    font-size: 1.2rem;
-    color: $text-light;
+    font-size: 1.3rem;
+    color: $color-light;
   }
 
   &__title {
-    font-size: 0.7rem;
-    color: $text-light-muted;
+    font-size: 0.8rem;
+    color: $color-light-muted;
   }
 
   &__headline {
     margin: 0;
-    color: $text-light;
-    font-size: clamp(1rem, 10vw, 2.5rem);
+    color: $color-light;
+    font-size: clamp(1rem, 10vmin, 2.5rem);
     text-transform: uppercase;
     font-weight: 500;
     line-height: 100%;
@@ -94,7 +95,7 @@ $adjustable-padding: min(2rem, 5vw);
 
   &__picture {
     position: relative;
-    border-radius: 50px;
+    border-radius: 3.125rem;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -105,56 +106,50 @@ $adjustable-padding: min(2rem, 5vw);
   font-variant: small-caps;
   font-style: italic;
   letter-spacing: 0.5rem;
-  font-weight: 100;
-  color: $text-light;
+  font-weight: 200;
+  color: $color-light;
 
   &--type-filler {
     opacity: 0.3;
   }
 }
 
+.fade {
+  position: absolute;
+  background: linear-gradient(#000000, #00000000);
+  width: 100%;
+  height: 5rem;
+  z-index: 0;
+}
+
 .projects {
   display: grid;
-  padding: 2rem;
-  gap: 2rem;
-
-  background-image: url("/static/exp4.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: $adjustable-padding;
+  justify-items: center;
 }
 
 .project {
   width: 100%;
-  height: 100vh;
+  max-width: calc($breakpoint + 40vw);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-
-  gap: 2rem;
-  padding: $adjustable-padding;
-  // border-radius: 20px;
-
-  // background-color: rgb(12, 12, 12);
-  // background: rgb(134, 103, 173);
-  // background-color: rgb(44, 41, 41);
-  // background-image: url("/static/exp.png");
-  // background-repeat: repeat;
-  // background-size: 100%;
-  // background-position: bottom;
+  overflow: hidden;
+  padding: 5rem 0;
+  gap: 10vw;
 
   &__details {
-    flex: 1 1 300px;
-    // height: 100%;
     width: 100%;
-    max-width: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 2rem;
-
-    color: $text-light;
+    color: $color-light;
     font-family: "Roboto Mono", monospace;
+  }
+
+  &__showcase {
+    position: relative;
+    width: 100%;
   }
 
   &__title {
@@ -168,7 +163,7 @@ $adjustable-padding: min(2rem, 5vw);
   &__description {
     font-weight: 300;
     line-height: 100%;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 
   &__actions {
@@ -176,42 +171,41 @@ $adjustable-padding: min(2rem, 5vw);
     gap: 1rem;
   }
 
-  &__showcase {
-    flex: 1 1 300px;
-    width: 100%;
-    max-width: 500px;
-    height: 100%;
-    display: grid;
-    place-items: center;
-  }
-
-  &__image {
-    position: relative;
-    width: 100%;
-    // width: min(600px, 100%);
-    height: 100%;
-  }
-
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: $breakpoint) {
     flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .button {
-  display: grid;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   height: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 50px;
-  border: 1px solid $text-light;
+  border: 1px solid $color-light;
 
-  color: $text-light;
+  color: $color-light;
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 200;
 
+  transition: all 0.5s;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: $color-light;
+  }
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
   &--type-inverted {
-    color: $text-dark;
-    background-color: $text-light;
+    color: $color-dark;
+    background-color: $color-light;
   }
 }

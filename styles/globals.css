@@ -6,7 +6,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: black;
 
-  /* background-position: bottom; */
+  background-image: url("/static/background.png");
+  background-repeat: repeat-y;
+  background-size: 100%;
 }
 
 :root {
