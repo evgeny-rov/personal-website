@@ -14,10 +14,10 @@ const MainScene = () => {
       <Canvas dpr={1}>
         {/* <Stats /> */}
         <fog attach="fog" args={["#000000", 10, 35]} />
-        <Controls />
         <pointLight position={[50, -5, 0]} intensity={5} color={LIGHTS_COLOR} />
         <pointLight position={[-50, 5, 0]} intensity={2} color={LIGHTS_COLOR} />
         <Suspense fallback={null}>
+          <Controls />
           <DunesModel position={[0, -5, 0]} />
           <Effects />
         </Suspense>

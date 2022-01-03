@@ -4,7 +4,7 @@ const cr_showcase_pic = "/static/projects/cr-showcase.png";
 const di_showcase_pic = "/static/projects/di-showcase.png";
 const in_showcase_pic = "/static/projects/in-showcase.png";
 
-export type Project = {
+export type ProjectType = {
   id: number;
   codename: string;
   shortname: string;
@@ -18,7 +18,7 @@ export type Project = {
 };
 
 export type ProjectsDataType = {
-  [codename: string]: Project;
+  [codename: string]: ProjectType;
 };
 
 const projectsData: ProjectsDataType = {
