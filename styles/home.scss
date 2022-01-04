@@ -2,7 +2,10 @@ $color-light: #fafafa;
 $color-light-muted: #7e7e7e;
 $color-dark: #111111;
 $adjustable-padding: min(2rem, 6vmin);
-$breakpoint: 40rem;
+$breakpoint: 37rem;
+
+$bg-black: #000;
+$bg-gray: #1c1725;
 
 .curtain {
   position: fixed;
@@ -114,6 +117,15 @@ $breakpoint: 40rem;
   display: grid;
   padding: $adjustable-padding;
   justify-items: center;
+
+  background-image: repeating-linear-gradient(
+    177deg,
+    $bg-black 3%,
+    $bg-gray 20%,
+    $bg-black 50%,
+    $bg-gray 95%,
+    $bg-black 100%
+  );
 }
 
 .project {
