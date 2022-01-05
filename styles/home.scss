@@ -20,7 +20,7 @@ $bg-gray: #1c1725;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  box-shadow: 0 3.125rem 3.125rem #000;
+  box-shadow: 0 5rem 5rem #000;
   border-radius: 0 0 2rem 2rem;
 
   &__header {
@@ -79,11 +79,11 @@ $bg-gray: #1c1725;
   }
 
   &__bio {
-    text-transform: capitalize;
     line-height: 1rem;
   }
 
   &__name {
+    text-transform: capitalize;
     margin: 0;
     font-weight: 300;
     font-size: 1.3rem;
@@ -118,14 +118,11 @@ $bg-gray: #1c1725;
   padding: $adjustable-padding;
   justify-items: center;
 
-  background-image: repeating-linear-gradient(
-    177deg,
-    $bg-black 3%,
-    $bg-gray 20%,
-    $bg-black 50%,
-    $bg-gray 95%,
-    $bg-black 100%
-  );
+  background-color: black;
+  background-image: url("/static/bg.png");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-position: bottom;
 }
 
 .project {

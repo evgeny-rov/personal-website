@@ -55,7 +55,7 @@ const HeroSection = () => {
           <div className="profile__info">
             <div className="profile__bio">
               <h3 className="profile__name">евгений родионов</h3>
-              <span className="profile__title">фронтенд разработчик</span>
+              <span className="profile__title">Frontend разработчик</span>
             </div>
             <h1 className="profile__headline">создаю ui даже во сне</h1>
             <span>
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Евгений Родионов - Фронтенд Разработчик</title>
+        <title>Евгений Родионов - Frontend разработчик</title>
         <meta
           name="description"
           content="Любимый фронтендер твоего любимого фронтендера"

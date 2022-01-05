@@ -29,7 +29,7 @@ const Controls = () => {
     <>
       <OrthographicCamera
         position={START_CAMERA_POS_VECTOR}
-        zoom={50}
+        zoom={INITIAL_ZOOM_DIST}
         far={500}
         near={-100}
         up={[0, 1, 0]}
