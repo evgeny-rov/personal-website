@@ -1,9 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
+import { FormEvent } from "react";
 
 const Contacts: NextPage = () => {
+  const router = useRouter();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert("Сообщение успешно отправлено");
+    router.back();
+  };
+
   return (
     <div>
       <Head>
@@ -17,16 +26,14 @@ const Contacts: NextPage = () => {
       </Head>
       <div className="contacts">
         <header className="contacts__header">
-          <Link href="/">
-            <a>
-              <Image
-                src="/favicon.ico"
-                className="contacts__back"
-                alt="go back logo"
-                layout="fill"
-              />
-            </a>
-          </Link>
+          <button onClick={() => router.back()}>
+            <Image
+              src="/static/logo.png"
+              className="contacts__back"
+              alt="go back logo"
+              layout="fill"
+            />
+          </button>
         </header>
         <main className="contacts__main">
           <div className="contacts__info">
@@ -40,7 +47,7 @@ const Contacts: NextPage = () => {
             method="POST"
             data-netlify="true"
             className="contacts__form"
-            onSubmit={() => alert("Сообщение успешно отправлено")}
+            onSubmit={handleSubmit}
           >
             <label htmlFor="name">Имя:</label>
             <input

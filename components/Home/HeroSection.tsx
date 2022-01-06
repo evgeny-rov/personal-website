@@ -1,32 +1,13 @@
 import Image from "next/image";
 import MainThreeScene from "../../three/MainThreeScene";
 import ScrambledText from "../../components/ScrambledText";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const MY_GITHUB_URL = "https://github.com/evgeny-rov";
 
 const HeroSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    const handleLoad = (e?: Event) => {
-      setIsLoaded(true);
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      document.addEventListener("readystatechange", handleLoad);
-    }
-
-    return () => {
-      document.removeEventListener("load", handleLoad);
-    };
-  }, []);
-
   return (
     <section className="hero">
-      {!isLoaded && <div className="curtain"></div>}
       <header className="hero__header">
         <a href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
           github
