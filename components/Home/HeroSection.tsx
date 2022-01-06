@@ -2,6 +2,7 @@ import Image from "next/image";
 import MainThreeScene from "../../three/MainThreeScene";
 import ScrambledText from "../../components/ScrambledText";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const MY_GITHUB_URL = "https://github.com/evgeny-rov";
 
@@ -30,7 +31,9 @@ const HeroSection = () => {
         <a href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
           github
         </a>
-        <a href="">контакт</a>
+        <Link href="/contacts">
+          <a>контакты</a>
+        </Link>
       </header>
       <div className="hero__foreground">
         <main className="profile">
