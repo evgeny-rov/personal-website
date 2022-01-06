@@ -32,6 +32,8 @@ const Contacts: NextPage = () => {
               className="contacts__back"
               alt="go back logo"
               layout="fill"
+              quality={50}
+              priority
             />
           </button>
         </header>
@@ -49,6 +51,7 @@ const Contacts: NextPage = () => {
             className="contacts__form"
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <label htmlFor="name">Имя:</label>
             <input
               type="text"
