@@ -1,17 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import { FormEvent } from "react";
+import Logo from "../components/Logo";
 
 const Contacts: NextPage = () => {
   const router = useRouter();
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert("Сообщение успешно отправлено");
-    router.back();
-  };
 
   return (
     <div>
@@ -26,15 +19,8 @@ const Contacts: NextPage = () => {
       </Head>
       <div className="contacts">
         <header className="contacts__header">
-          <button onClick={() => router.back()}>
-            <Image
-              src="/static/logo.png"
-              className="contacts__back"
-              alt="go back logo"
-              layout="fill"
-              quality={50}
-              priority
-            />
+          <button className="contacts__back" onClick={() => router.back()}>
+            <Logo className="contacts__logo" />
           </button>
         </header>
         <main className="contacts__main">
@@ -49,7 +35,7 @@ const Contacts: NextPage = () => {
             method="POST"
             data-netlify="true"
             className="contacts__form"
-            onSubmit={handleSubmit}
+            onSubmit={() => alert("Сообщение успешно отправлено.")}
           >
             <input type="hidden" name="form-name" value="contact" />
             <label htmlFor="name">Имя:</label>

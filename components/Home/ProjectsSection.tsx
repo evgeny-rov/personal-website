@@ -15,7 +15,7 @@ const Project = (project: ProjectType) => {
           alt={project.title}
           width={2000}
           height={2000}
-          quality={50}
+          quality={40}
           priority
           objectFit="contain"
         />

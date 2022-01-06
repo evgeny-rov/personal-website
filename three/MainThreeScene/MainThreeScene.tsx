@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Loader, Stats } from "@react-three/drei";
 
 import DunesModel from "./DunesModel";
 import Effects from "./Effects";
@@ -12,7 +11,6 @@ const MainScene = () => {
   return (
     <>
       <Canvas dpr={1}>
-        {/* <Stats /> */}
         <fog attach="fog" args={["#000000", 10, 35]} />
         <pointLight position={[50, -5, 0]} intensity={5} color={LIGHTS_COLOR} />
         <pointLight position={[-50, 5, 0]} intensity={2} color={LIGHTS_COLOR} />
@@ -22,7 +20,6 @@ const MainScene = () => {
           <Effects />
         </Suspense>
       </Canvas>
-      {/* <Loader /> */}
     </>
   );
 };

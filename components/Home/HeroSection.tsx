@@ -22,7 +22,7 @@ const HeroSection = () => {
             <Image
               src={"/static/hero_pic.png"}
               alt="profile picture"
-              quality={50}
+              quality={30}
               priority
               layout="fill"
               objectFit="cover"

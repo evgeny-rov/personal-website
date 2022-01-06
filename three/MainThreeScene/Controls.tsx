@@ -21,8 +21,9 @@ const Controls = () => {
       return;
     } else {
       state.camera.zoom = nextZoomValue;
-      state.camera.updateProjectionMatrix();
     }
+
+    state.camera.updateProjectionMatrix();
   });
 
   return (
@@ -30,8 +31,8 @@ const Controls = () => {
       <OrthographicCamera
         position={START_CAMERA_POS_VECTOR}
         zoom={INITIAL_ZOOM_DIST}
-        far={500}
-        near={-100}
+        far={50}
+        near={-10}
         up={[0, 1, 0]}
         makeDefault
       />
