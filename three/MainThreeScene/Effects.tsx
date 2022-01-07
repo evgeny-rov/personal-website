@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Bloom,
-  ChromaticAberration,
-  DepthOfField,
-  EffectComposer,
-  Noise,
-  Glitch,
-  SMAA,
-} from "@react-three/postprocessing";
+import { EffectComposer, Noise } from "@react-three/postprocessing";
 
 const Effects = () => {
   return (

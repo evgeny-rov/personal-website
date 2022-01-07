@@ -45,6 +45,7 @@ const ScrambledText = ({
   const [nextSentenceIndex, setNextSentenceIndex] = useState(0);
   const [output, setOutput] = useState<Output>([]);
   const timelineRef = useRef<TimelineType>();
+  const requestRef = useRef<number>();
 
   const animationTick = useCallback(
     (outputGenerator: Generator<Output, void, unknown>) => {
@@ -54,7 +55,9 @@ const ScrambledText = ({
         return;
       } else {
         setOutput(nextOutput.value);
-        requestAnimationFrame(() => animationTick(outputGenerator));
+        requestRef.current = requestAnimationFrame(() =>
+          animationTick(outputGenerator)
+        );
       }
     },
     []
@@ -100,7 +103,10 @@ const ScrambledText = ({
       }, interval);
     }
 
-    return () => clearTimeout(timerId);
+    return () => {
+      clearTimeout(timerId);
+      requestRef.current && cancelAnimationFrame(requestRef.current);
+    };
   }, [
     initAnimation,
     interval,
