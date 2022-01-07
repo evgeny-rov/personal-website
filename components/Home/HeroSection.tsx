@@ -4,6 +4,7 @@ import ScrambledText from "../../components/ScrambledText";
 import Link from "next/link";
 
 const MY_GITHUB_URL = "https://github.com/evgeny-rov";
+const PROFILE_PIC_URL = "https://avatars.githubusercontent.com/u/53393266?v=4";
 
 const HeroSection = () => {
   return (
@@ -20,7 +21,7 @@ const HeroSection = () => {
         <main className="profile">
           <div className="profile__picture">
             <Image
-              src={"/static/hero_pic.png"}
+              src={PROFILE_PIC_URL}
               alt="profile picture"
               quality={30}
               priority
