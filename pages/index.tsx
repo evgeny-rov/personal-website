@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import HeroSection from "../components/Home/HeroSection";
 import ProjectsSection from "../components/Home/ProjectsSection";
+import { PROFILE_PIC_URL } from "../data/profile";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
           name="description"
           content="Любимый фронтендер твоего любимого фронтендера"
         />
-        <meta property="og:image" content="/static/hero_pic.png" />
+        <meta property="og:image" content={PROFILE_PIC_URL} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeroSection />
