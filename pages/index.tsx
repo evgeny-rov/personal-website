@@ -1,24 +1,27 @@
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import Head from "next/head";
 import HeroSection from "../components/Home/HeroSection";
 import ProjectsSection from "../components/Home/ProjectsSection";
-import { PROFILE_PIC_URL } from "../data/profile";
+
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Евгений Родионов - Frontend разработчик</title>
-        <meta
-          name="description"
-          content="Любимый фронтендер твоего любимого фронтендера"
-        />
-        <meta property="og:image" content={PROFILE_PIC_URL} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <motion.div
+      key="home"
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 1, type: "easeInOut" }}
+    >
       <HeroSection />
       <ProjectsSection />
-    </div>
+    </motion.div>
   );
 };
 

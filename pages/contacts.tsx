@@ -1,23 +1,26 @@
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import Logo from "../components/Logo";
-import { PROFILE_PIC_URL } from "../data/profile";
+
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
 
 const Contacts: NextPage = () => {
   const router = useRouter();
 
   return (
-    <div>
-      <Head>
-        <title>Евгений Родионов - Frontend разработчик</title>
-        <meta
-          name="description"
-          content="Любимый фронтендер твоего любимого фронтендера"
-        />
-        <meta property="og:image" content={PROFILE_PIC_URL} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <motion.div
+      key="contacts"
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 0.4, type: "easeInOut" }}
+    >
       <div className="contacts">
         <header className="contacts__header">
           <button className="contacts__back" onClick={() => router.back()}>
@@ -71,7 +74,7 @@ const Contacts: NextPage = () => {
           </form>
         </main>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
