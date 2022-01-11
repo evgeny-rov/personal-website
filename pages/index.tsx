@@ -1,23 +1,27 @@
+import { motion, Variants } from "framer-motion";
 import type { NextPage } from "next";
-import Head from "next/head";
 import HeroSection from "../components/Home/HeroSection";
 import ProjectsSection from "../components/Home/ProjectsSection";
 
+const page_variants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
+
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Евгений Родионов - Frontend разработчик</title>
-        <meta
-          name="description"
-          content="Любимый фронтендер твоего любимого фронтендера"
-        />
-        <meta property="og:image" content="/static/hero_pic.png" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <motion.div
+      key="home"
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={page_variants}
+      transition={{ duration: 1, type: "easeInOut" }}
+    >
       <HeroSection />
       <ProjectsSection />
-    </div>
+    </motion.div>
   );
 };
 

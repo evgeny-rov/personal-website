@@ -32,7 +32,7 @@ const Controls = () => {
         position={START_CAMERA_POS_VECTOR}
         zoom={INITIAL_ZOOM_DIST}
         far={50}
-        near={-10}
+        near={-15}
         up={[0, 1, 0]}
         makeDefault
       />
