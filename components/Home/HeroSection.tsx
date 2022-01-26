@@ -42,7 +42,11 @@ const HeroSection = () => {
               <h3 className="profile__name">евгений родионов</h3>
               <span className="profile__title">Frontend разработчик</span>
             </div>
-            <h1 className="profile__headline">создаю ui даже во сне</h1>
+            <h1 className="profile__headline">
+              превращаю
+              <br />
+              кофе в web приложения
+            </h1>
             <span>
               <ScrambledText
                 shouldRepeat

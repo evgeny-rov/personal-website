@@ -83,14 +83,15 @@ $bg-gray: #1c1725;
   }
 
   &__title {
-    font-size: 0.8rem;
-    color: $color-light-muted;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    text-transform: uppercase;
   }
 
   &__headline {
     margin: 0;
     color: $color-light;
-    font-size: clamp(1rem, 9vmin, 2.5rem);
+    font-size: clamp(1rem, 7.5vmin, 2.3rem);
     text-transform: uppercase;
     font-weight: 500;
     line-height: 100%;
