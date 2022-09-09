@@ -1,6 +1,6 @@
 # This project is my personal portfolio website.
 
-Check out live version at [evgenyrov.com](https://evgenyrov.com/)
+Check out [live version](https://evgenyrov.netlify.app/)
 
 Tech stack:
   - TypeScript
